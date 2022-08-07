@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Home-Plant Disease Detection</title>
+  </head>
+  <body>
+      <!-- <div class="text-center "> -->
+    <h1 style="text-align:center;">Plant Disease Detection</h1>
+    <h5 class="text-success text-center">Pick the image of leaf to detect its disease</h5>
+    <form class="p-3 text-center" action='/', method="post" enctype="multipart/form-data">
+        <input type="file" class=" form-control mt-5 ml-auto mr-auto w-50" name="imagefile">
+        <input class="btn btn-primary mt-3" type="submit" value="predict Image">
+       
+    </form>
+</div>
+  {% if prediction %}
+ <div class="container"> 
+   <h2>We are {{confidence}}% sure on this prediction i.e {{className}}</h2>
+ <div class="row">
+   <div class="col-4">
+    <div class="card" style="width: 18rem;">
+      <img src="{{orginalImage}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Orginal Image</h5>
+      </div>
+   </div>
+   </div>
+
+   <div class="col-4">
+    <div class="card" style="width: 18rem;">
+      <img src="{{modifiedImage}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Predicted Image</h5>
+        <p class="card-text"></p>
+      </div>
+   </div>
+   </div>
+
+   <div class="col-4">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Solution</h5>
+        <p class="card-text">{{suggestedSolution}}</p>
+      </div>
+ </div>
+</div>
+  
+  {% endif %}
+  </body>
+</html>
+
+
